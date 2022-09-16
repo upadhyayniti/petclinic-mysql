@@ -66,7 +66,7 @@ Ctrl-C out of Terminal 1 that is running port-forward command
 
 Click the `+Add` button and choose `Import from Git` type:
 
-Fill the git repo with the following value `https://github.com/upadhyayniti/spring-petclinic`. This is where things get interesting.
+Fill the git repo with the following value `https://github.com/upadhyayniti/petclinic-mysql`. This is where things get interesting.
 
 When you enter the URL for a git repo, OpenShift will look at the files in the repo and attempt to discern the best way to build the application. There are three possible results:  
 1. Build using the file "devfile.yaml" found in the source code
