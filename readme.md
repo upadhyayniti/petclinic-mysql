@@ -51,6 +51,8 @@ This will forward local port 3306 to mysql pod port 3306. DO NOT Ctrl-C out of t
 
 **TERMINAL 2**
 ```
+git clone https://github.com/upadhyayniti/petclinic-mysql
+
 cd src/main/resources/db/mysql/
 
 mysql -upetclinic -h127.0.0.1 -P3306 -ppetclinic petclinic < schema.sql
