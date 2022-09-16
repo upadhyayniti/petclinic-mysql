@@ -40,12 +40,31 @@ In a production system, you will most likely be using a permanent MySQL instance
 
 After a few minutes, and behind the scenes, an Ephemeral instance of a MySQL database container will be started. At this point, you have a database engine to be used by the application. Time to move on and create the application.
 
+On local machine, clone this repo to import data into the database
+
+**TERMINAL 1**
+```
+oc port-forward po/<pod name> 3306:3306
+```
+  
+This will forward local port 3306 to mysql pod port 3306. DO NOT Ctrl-C out of this terminal. 
+
+**TERMINAL 2**
+```
+cd src/main/resources/db/mysql/
+
+mysql -upetclinic -h127.0.0.1 -P3306 -ppetclinic petclinic < schema.sql
+
+mysql -upetclinic -h127.0.0.1 -P3306 -ppetclinic petclinic < data.sql
+```
+Ctrl-C out of Terminal 1 that is running port-forward command
+
 ### Deploy Pet Clinic App
 
 
 Click the `+Add` button and choose `Import from Git` type:
 
-Fill the git repo with the following value `https://github.com/redhat-developer-demos/spring-petclinic`. This is where things get interesting.
+Fill the git repo with the following value `https://github.com/upadhyayniti/spring-petclinic`. This is where things get interesting.
 
 When you enter the URL for a git repo, OpenShift will look at the files in the repo and attempt to discern the best way to build the application. There are three possible results:  
 1. Build using the file "devfile.yaml" found in the source code
